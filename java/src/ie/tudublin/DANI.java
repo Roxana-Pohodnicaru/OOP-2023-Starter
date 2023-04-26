@@ -20,14 +20,26 @@ public class DANI extends PApplet {
 		//fullScreen(SPAN);
 	}
 
-	// created my own method to check if the file contents
-	// are being loaded correctly
-	public void displayFile()
+	// show contents of file
+	public void printModel()
 	{
 		for(Word w:model)
 		{
 			println(w);
 		}
+	}
+
+	public Word findWord(String string)
+	{
+		for (Word w:model)
+		{
+			if (w.getWord().equals(string))
+			{
+				return w;
+			}
+		}
+
+		return null;
 	}
 
 	public void loadFile()
@@ -84,7 +96,7 @@ public class DANI extends PApplet {
 		colorMode(HSB);
 
 		loadFile();
-		displayFile();
+		printModel();
        
 	}
 
