@@ -6,12 +6,13 @@ public class Word {
     
     public String word = " ";
 
-    ArrayList<Follow> follows = new ArrayList<Follow>();
+    ArrayList<Follow> follows;
 
     // constructor
     public Word(String word)
     {
         this.word = word;
+        this.follows = new ArrayList<Follow>();
     }
 
     // getters and setters
@@ -25,9 +26,15 @@ public class Word {
         this.word = word;
     }
 
+    public ArrayList<Follow> getFollow()
+    {
+        return follows;
+    }
 
-    
-
+    public void setFollow(ArrayList<Follow> follows)
+    {
+        this.follows = follows;
+    }
 
     @Override
     public String toString()

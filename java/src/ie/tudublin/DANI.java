@@ -107,7 +107,10 @@ public class DANI extends PApplet {
 
 	public void keyPressed() {
 
-		// space to start program here
+		if (key == ' ')
+		{
+			// write sonnet
+		}
 
 	}
 
