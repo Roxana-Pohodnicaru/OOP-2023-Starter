@@ -28,6 +28,8 @@ public class DANI extends PApplet {
 
 	public void keyPressed() {
 
+		// space to start program here
+
 	}
 
 	float off = 0;
