@@ -44,46 +44,80 @@ public class DANI extends PApplet {
 
 	public void loadFile()
 	{
-		BufferedReader input = null;
 
-		try {
+		String[] lines = loadStrings("small.txt");
+		String[] words;
+		String w;
+		String next;
 
-			input = new BufferedReader(new FileReader("data/small.txt"));
+		for (String l:lines)
+		{
+			words = split(l, ' ');
+
+			for (int i = 0; i < words.length; i++)
+			{
+				w = words[i].replaceAll("[^\\w\\s]", "");
+				w.toLowerCase();
+
+				Word word = findWord(w);
+
+				// adding to arraylist
+				if (word == null)
+				{
+					word = new Word(w);
+					model.add(word);
+
+				}
+
+				// need to check for next word in list
+				// if thats true
+				// incrementFollows(next);
+
+			}
+		}
+
+		// not sure why but this code no longer 
+		// prints the text file
+		// BufferedReader input = null;
+
+		// try {
+
+		// 	input = new BufferedReader(new FileReader("data/small.txt"));
 
 			
-			String line;
-			String words[];
+		// 	String line;
+		// 	String words[];
 
-			// read entire file
-			while((line = input.readLine()) != null)
-			{
-				words = line.split(" ");
+		// 	// read entire file
+		// 	while((line = input.readLine()) != null)
+		// 	{
+		// 		words = line.split(" ");
 
-				// for each word, add it to array list
-				for(String w:words)
-				{
-					model.add(new Word(w));
-				}
+		// 		// for each word, add it to array list
+		// 		for(String w:words)
+		// 		{
+		// 			model.add(new Word(w));
+		// 		}
 
-			}
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			if (input != null)
-			{
-				try {
-					input.close();
-				}
-				catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-		}
+		// 	}
+		// }
+		// catch (IOException e)
+		// {
+		// 	e.printStackTrace();
+		// }
+		// finally
+		// {
+		// 	if (input != null)
+		// 	{
+		// 		try {
+		// 			input.close();
+		// 		}
+		// 		catch(Exception e)
+		// 		{
+		// 			e.printStackTrace();
+		// 		}
+		// 	}
+		// }
 
 	}
 

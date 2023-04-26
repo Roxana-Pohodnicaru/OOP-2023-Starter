@@ -37,7 +37,7 @@ public class Word {
     }
 
     // if current word == word, increment counter
-    public void appendFollow(String word)
+    public void incrementFollow(String word)
     {
         for (Follow f:follows)
         {
