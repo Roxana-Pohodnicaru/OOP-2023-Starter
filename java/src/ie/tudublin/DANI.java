@@ -17,8 +17,8 @@ public class DANI extends PApplet {
 	}
 
     String[] sonnet;
-	String word = " ";
-	int count = 0;
+	public String word = " ";
+	public int count = 0;
 
 
 	public void findWord(Follow word)
@@ -32,10 +32,19 @@ public class DANI extends PApplet {
 			if(follows.contains(word))
 			{
 				count++;
-			}	
+			}
 		}
 	}
 
+	// created my own method to check if the file contents
+	// are being loaded correctly
+	public void displayFile()
+	{
+		for(Follow f:follows)
+		{
+			println(f);
+		}
+	}
 
 	public void loadFile()
 	{
@@ -43,17 +52,26 @@ public class DANI extends PApplet {
 
 		try {
 
-			input = new BufferedReader(new FileReader("small.txt"));
+			input = new BufferedReader(new FileReader("data/small.txt"));
 
 			
+			String line;
+
 
 			// read entire file
-			while((word = input.readLine()) != null)
+			while((line = input.readLine()) != null)
 			{
-				// add word to array list
+
+				// make new array to hold words
+				String[] words = line.split("\\s+");
+
+				// for each word, add it to array list
+				for(String word:words)
+				{
+					follows.add(new Follow(word, 0));
+				}
+
 			}
-
-
 		}
 		catch (IOException e)
 		{
@@ -83,6 +101,9 @@ public class DANI extends PApplet {
 	public void setup() {
 		colorMode(HSB);
 
+		loadFile();
+		displayFile();
+		
        
 	}
 
@@ -101,6 +122,7 @@ public class DANI extends PApplet {
 		noStroke();
 		textSize(20);
         textAlign(CENTER, CENTER);
+
         
 	}
 }
