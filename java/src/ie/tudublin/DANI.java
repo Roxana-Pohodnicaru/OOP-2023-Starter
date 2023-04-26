@@ -34,8 +34,6 @@ public class DANI extends PApplet {
 		}
 	}
 
-
-
 	// created my own method to check if the file contents
 	// are being loaded correctly
 	public void displayFile()
@@ -68,6 +66,7 @@ public class DANI extends PApplet {
 				// for each word, add it to array list
 				for(String word:words)
 				{
+					findWord(word);
 					follows.add(new Follow(word, count));
 				}
 
