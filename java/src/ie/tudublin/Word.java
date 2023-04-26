@@ -36,6 +36,17 @@ public class Word {
         this.follows = follows;
     }
 
+    public void appendFollow(String word)
+    {
+        for (Follow f:follows)
+        {
+            if (f.getWord().equals(word))
+            {
+                f.counter();
+            }
+        }
+    }
+
     @Override
     public String toString()
     {

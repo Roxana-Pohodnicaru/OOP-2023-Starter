@@ -21,19 +21,6 @@ public class DANI extends PApplet {
 	public int count = 0;
 
 
-	public void findWord(String string)
-	{
-		// iterate through array list
-		// if word matches next word, count ++
-		for (Follow f:follows)
-		{
-			if (f.getWord().equals(string))
-			{
-				count++;
-			}
-		}
-	}
-
 	// created my own method to check if the file contents
 	// are being loaded correctly
 	public void displayFile()
@@ -66,7 +53,6 @@ public class DANI extends PApplet {
 				// for each word, add it to array list
 				for(String word:words)
 				{
-					findWord(word);
 					follows.add(new Follow(word, count));
 				}
 

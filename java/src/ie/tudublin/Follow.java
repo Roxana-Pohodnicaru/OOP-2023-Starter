@@ -33,11 +33,16 @@ public class Follow {
         this.count = count;
     }
 
+    public void counter()
+    {
+        count++;
+    }
+
     // toString method
     @Override
     public String toString()
     {
-        return word + " " + count;
+        return word + " (" + count + ")";
     }
 
 }
