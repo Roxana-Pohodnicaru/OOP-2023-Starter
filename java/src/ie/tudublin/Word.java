@@ -36,6 +36,7 @@ public class Word {
         this.follows = follows;
     }
 
+    // if current word == word, increment counter
     public void appendFollow(String word)
     {
         for (Follow f:follows)

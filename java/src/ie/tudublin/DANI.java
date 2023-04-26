@@ -11,7 +11,7 @@ public class DANI extends PApplet {
 
 	ArrayList<Word> model = new ArrayList<Word>();
 
-    String[] sonnet;
+    
 	public String word = " ";
 	public int count = 0;
 
@@ -57,7 +57,7 @@ public class DANI extends PApplet {
 			// read entire file
 			while((line = input.readLine()) != null)
 			{
-				words = line.split("\\s+");
+				words = line.split(" ");
 
 				// for each word, add it to array list
 				for(String w:words)
@@ -87,9 +87,22 @@ public class DANI extends PApplet {
 
 	}
 
+	String[] sonnet;
+
     public String[] writeSonnet()
     {
-        return null;
+		// 14 lines
+		sonnet = new String[14];
+
+		for (int i = 0; i < sonnet.length; i++)
+		{
+			for ( int j = 0; j < 8; j ++)
+			{
+				// pick a word randomly to form a sentence
+			}
+		}
+    
+		return null;
     }
 
 	public void setup() {
@@ -104,7 +117,7 @@ public class DANI extends PApplet {
 
 		if (key == ' ')
 		{
-			// write sonnet
+			//writeSonnet();
 		}
 
 	}
