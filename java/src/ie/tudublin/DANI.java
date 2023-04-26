@@ -9,25 +9,24 @@ import processing.core.PApplet;
 
 public class DANI extends PApplet {
 
-	ArrayList<Follow> follows = new ArrayList<Follow>();
+	ArrayList<Word> model = new ArrayList<Word>();
+
+    String[] sonnet;
+	public String word = " ";
+	public int count = 0;
 
 	public void settings() {
 		size(1000, 1000);
 		//fullScreen(SPAN);
 	}
 
-    String[] sonnet;
-	public String word = " ";
-	public int count = 0;
-
-
 	// created my own method to check if the file contents
 	// are being loaded correctly
 	public void displayFile()
 	{
-		for(Follow f:follows)
+		for(Word w:model)
 		{
-			println(f);
+			println(w);
 		}
 	}
 
@@ -41,19 +40,17 @@ public class DANI extends PApplet {
 
 			
 			String line;
-
+			String words[];
 
 			// read entire file
 			while((line = input.readLine()) != null)
 			{
-
-				// make new array to hold words
-				String[] words = line.split("\\s+");
+				words = line.split("\\s+");
 
 				// for each word, add it to array list
-				for(String word:words)
+				for(String w:words)
 				{
-					follows.add(new Follow(word, count));
+					model.add(new Word(w));
 				}
 
 			}
